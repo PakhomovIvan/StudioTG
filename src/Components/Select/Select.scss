@@ -1,0 +1,103 @@
+$text-color: #1a202c;
+$text-color-active: #4f4f4f;
+$background-color: #ffffff;
+$background-color-scroll: #999999;
+$background-select-active: #dcf2ff;
+$background-select-hover: #f3f3f3;
+$border-color: #3b71ca;
+
+.select {
+  position: relative;
+  width: 320px;
+  color: $text-color;
+
+  .select-input {
+    width: 100%;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    padding: 5px 12px;
+    box-sizing: border-box;
+    border: 1px solid rgb(189, 189, 189);
+    border-radius: 4px;
+    color: $text-color-active;
+
+    &::placeholder {
+      color: #a0aec0;
+    }
+
+    &:focus {
+      border: 2px solid $border-color;
+    }
+  }
+
+  .select-arrow {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 40px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+
+    img {
+      max-width: 60%;
+      max-height: 60%;
+    }
+  }
+
+  .select-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: 1px solid #e2e8f0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    z-index: 10;
+    max-height: 195px;
+    overflow-y: auto;
+    border-radius: 4px;
+    box-shadow: 0px 10px 20px -2px rgba(0, 0, 0, 0.04),
+      0px 2px 15px -3px rgba(0, 0, 0, 0.07);
+    background: $background-color;
+
+    .select-option {
+      padding-left: 16px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      transition: 0.3s;
+      cursor: pointer;
+      color: $text-color;
+
+      &:hover {
+        background: $background-select-hover;
+      }
+
+      &.select-option-selected {
+        font-weight: 600;
+        background: $background-select-active;
+      }
+    }
+
+    .select-option-empty {
+      padding: 6px 10px;
+    }
+
+    &::-webkit-scrollbar {
+      width: 7px;
+      background: $background-color;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      width: 4px;
+      border-radius: 4px;
+      background: $background-color-scroll;
+    }
+  }
+}
